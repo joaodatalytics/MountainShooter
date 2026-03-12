@@ -8,9 +8,13 @@ class Menu:
     pass
 
 
-class Level:
+class level:
     pass
 
 
 class Menu:
     pass
+
+
+def ame():
+    return None

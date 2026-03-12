@@ -1,11 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
-
 import pygame
 
-from code.Const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
-from code.level import Level  # Correção 1: Importando a classe com L maiúsculo (verifique se no seu arquivo está assim)
+from code.Const import MENU_OPTION, WIN_WIDTH, WIN_HEIGHT
+from code.level import Level
 from code.menu import Menu
 
 
@@ -20,11 +18,11 @@ class Game:
             menu_return = menu.run()
 
             if menu_return in [MENU_OPTION[0], MENU_OPTION[1], MENU_OPTION[2]]:
-                # Correção 2: Mudei o nome da variável para 'current_level'
-                # e instanciei a classe 'Level' corretamente.
+                # Correção 2: Mudamos o nome da variável para 'current_level'
+                # e instanciamos a classe 'Level' corretamente.
                 current_level = Level(self.window, 'Level1', menu_return)
 
-                # Correção 3: Se não for usar o 'level_return', você pode apenas usar assim:
+                # Correção 3: Se não for usar o 'level_return', você pode apenas chamar o método assim:
                 current_level.run()
 
             elif menu_return == MENU_OPTION[4]:
