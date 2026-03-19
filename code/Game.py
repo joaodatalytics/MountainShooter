@@ -18,27 +18,16 @@ class Game:
             menu_return = menu.run()
 
             if menu_return in [MENU_OPTION[0], MENU_OPTION[1], MENU_OPTION[2]]:
-                # Correção 2: Mudamos o nome da variável para 'current_level'
-                # e instanciamos a classe 'Level' corretamente.
-                current_level = Level(self.window, 'Level1', menu_return)
-                #level = level(self.window, 'Level1', menu_return)
-                # Correção 3: Se não for usar o 'level_return', chame assim:
-                current_level.run()
-                #level_return = level.run()
+                player_score = [0, 0]  # [Player1, Player2]
+                level = Level(self.window, 'Level1', menu_return, player_score)
+                level_return = level.run(player_score)
+                if level_return:
+                    level = Level(self.window, 'Level2', menu_return, player_score)
+                    level_return = level.run(player_score)
+
 
             elif menu_return == MENU_OPTION[4]:
                 pygame.quit()  # Close Window
                 quit()  # end pygame
             else:
-                pass
-
-
-
-
-
-
-
-
-
-
-
+                pygame.quit()
